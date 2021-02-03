@@ -5,7 +5,11 @@ using UnityEngine;
 public class MovingObject : MonoBehaviour
 {
     //벽에 부딫히면 멈추게 
-    private BoxCollider2D boxCollider2D;
+    private BoxCollider2D boxCollider;
+
+    //통과가 불가능한 레이어를 설정해주는것
+    public LayerMask layerMask;
+
 
     // 속도값 
     public float speed;
@@ -20,7 +24,6 @@ public class MovingObject : MonoBehaviour
     // currentWalkCount += 1, 20,
 
     private bool canMove = true;
-
     private Animator animator;
 
     // 하나의 변수로 3개의 변수를 갖는것 
@@ -30,6 +33,7 @@ public class MovingObject : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        boxCollider = GetComponent<BoxCollider2D>();
         animator = GetComponent<Animator>();
     }
     
@@ -50,6 +54,25 @@ public class MovingObject : MonoBehaviour
 
           animator.SetFloat("DirX", vector.x);
           animator.SetFloat("DirY", vector.y);
+
+          RaycastHit2D hit;
+          // A지점 B지점이 있을때 레이저를 쏴서 
+          // B지점까지 무사히 도달한다면 hit==null
+          // 무사히 도달하지 못하면 hit==방해물이 리턴
+
+          Vector2 start = transform.position; // A지점  캐릭터의 현재 위치값
+          Vector2 end = start+new Vector2(vector.x*speed*walkCount,vector.y*speed*walkCount); // B지점  캐릭터가 이동하고자 하는 위치값
+         
+         // 캐릭터가 자기본연의값 boxcollider를 가지고 있는데 본인이쏘고 본인이 맞을수가 있어서 잠시 해제해준다
+          boxCollider.enabled = false;
+         //레이저를 쏘는것
+           hit = Physics2D.Linecast(start,end,layerMask);
+         // 캐릭터 자기 본연의값을 다시 세팅해준다 
+         boxCollider.enabled = true;
+         
+         if(hit.transform !=null)
+         break;
+
           animator.SetBool("Walking",true);
          // 상하좌우일때 인수를 DirX로 받는것 애니메이터에 입력
 
