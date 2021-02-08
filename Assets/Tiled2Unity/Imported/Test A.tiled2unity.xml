@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <!--Tiled2Unity generated xml data-->
 <!--Do not modify by hand-->
-<!--Last exported: 2/5/2021 3:23:39 PM-->
+<!--Last exported: 2/8/2021 6:19:20 PM-->
 <Tiled2Unity version="1.0.13.2">
   <AssignMaterial mesh="Test-A_mesh_0001" material="Forest_A5" />
   <AssignMaterial mesh="Test-A_mesh_0002" material="Forest_B" />
@@ -49,10 +49,6 @@
       <GameObject name="RectangleObject" x="387" y="-486" rotation="0">
         <RectangleObjectComponent tmx-object-id="10" tmx-object-name="" tmx-object-type="" tmx-object-x="387" tmx-object-y="486" tmx-object-width="40" tmx-object-height="42" tmx-object-rotation="0" />
         <BoxCollider2D width="40" height="42" />
-      </GameObject>
-      <GameObject name="RectangleObject" x="261.905" y="-633.333" rotation="0">
-        <RectangleObjectComponent tmx-object-id="3" tmx-object-name="" tmx-object-type="" tmx-object-x="261.905" tmx-object-y="633.333" tmx-object-width="380.952" tmx-object-height="26.1905" tmx-object-rotation="0" />
-        <BoxCollider2D width="380.952" height="26.1905" />
       </GameObject>
     </GameObject>
   </Prefab>
