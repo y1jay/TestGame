@@ -38,6 +38,7 @@
   <ItemGroup>
      <Compile Include="Assets\Script\CameraManager.cs" />
      <Compile Include="Assets\Script\MovingObject.cs" />
+     <Compile Include="Assets\Script\TransferMap.cs" />
      <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\CircleObject.cs" />
      <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\GPUInstancing.cs" />
      <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\GameObjectExtensions.cs" />
